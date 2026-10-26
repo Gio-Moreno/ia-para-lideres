@@ -1,0 +1,840 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>IA para Líderes</title>
+<style>
+/* Layout: página de venta en una columna centrada (máx. 1000px) de tarjetas de vidrio esmerilado sobre un fondo suave estilo macOS; barra segmentada fija arriba */
+:root {
+  --wall: #e8ecf3;
+  --blob-1: #9fc6ff;
+  --blob-2: #a6e3d2;
+  --blob-3: #ffd6ad;
+  --blob-4: #f4bdd3;
+  --glass: rgba(255, 255, 255, 0.56);
+  --glass-strong: rgba(255, 255, 255, 0.82);
+  --glass-border: rgba(255, 255, 255, 0.78);
+  --hairline: rgba(24, 34, 56, 0.09);
+  --fg: #1c1f26;
+  --fg-2: #4a5162;
+  --fg-3: #767e90;
+  --accent: #0a6cdc;
+  --accent-soft: rgba(10, 108, 220, 0.1);
+  --on-accent: #ffffff;
+  --c1: #0a6cdc;
+  --c2: #18925a;
+  --c3: #d9730b;
+  --c4: #cf2f68;
+  --c5: #6a4fd8;
+  --c6: #0e8a9a;
+  --muted-x: #a0566a;
+  --cal-red: #e3463c;
+  --on-color: #ffffff;
+  --shadow: 0 1px 1px rgba(24, 34, 56, 0.04), 0 10px 34px rgba(24, 34, 56, 0.09);
+  --font-ui: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI Variable Text", "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-display: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI Variable Display", "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --r-lg: 22px;
+  --r-md: 14px;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --wall: #0e1117;
+    --blob-1: #1b3866;
+    --blob-2: #12463c;
+    --blob-3: #4a3014;
+    --blob-4: #481b32;
+    --glass: rgba(30, 33, 41, 0.56);
+    --glass-strong: rgba(38, 42, 52, 0.82);
+    --glass-border: rgba(255, 255, 255, 0.09);
+    --hairline: rgba(255, 255, 255, 0.09);
+    --fg: #f1f3f7;
+    --fg-2: #b7bdcb;
+    --fg-3: #8990a1;
+    --accent: #4fa3ff;
+    --accent-soft: rgba(79, 163, 255, 0.14);
+    --on-accent: #0b1220;
+    --c1: #4fa3ff;
+    --c2: #3fc67a;
+    --c3: #ffa64a;
+    --c4: #ff6b9b;
+    --c5: #a08bff;
+    --c6: #3fd0e0;
+    --muted-x: #e58aa2;
+    --cal-red: #ff5a50;
+    --on-color: #0e1117;
+    --shadow: 0 1px 1px rgba(0, 0, 0, 0.2), 0 12px 36px rgba(0, 0, 0, 0.38);
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --wall: #0e1117;
+  --blob-1: #1b3866;
+  --blob-2: #12463c;
+  --blob-3: #4a3014;
+  --blob-4: #481b32;
+  --glass: rgba(30, 33, 41, 0.56);
+  --glass-strong: rgba(38, 42, 52, 0.82);
+  --glass-border: rgba(255, 255, 255, 0.09);
+  --hairline: rgba(255, 255, 255, 0.09);
+  --fg: #f1f3f7;
+  --fg-2: #b7bdcb;
+  --fg-3: #8990a1;
+  --accent: #4fa3ff;
+  --accent-soft: rgba(79, 163, 255, 0.14);
+  --on-accent: #0b1220;
+  --c1: #4fa3ff;
+  --c2: #3fc67a;
+  --c3: #ffa64a;
+  --c4: #ff6b9b;
+  --c5: #a08bff;
+  --c6: #3fd0e0;
+  --muted-x: #e58aa2;
+  --cal-red: #ff5a50;
+  --on-color: #0e1117;
+  --shadow: 0 1px 1px rgba(0, 0, 0, 0.2), 0 12px 36px rgba(0, 0, 0, 0.38);
+  color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 80px; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+body {
+  background: var(--wall);
+  color: var(--fg);
+  font-family: var(--font-ui);
+  font-size: 15px;
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+}
+
+.wall {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(42% 46% at 12% 8%, var(--blob-1), transparent 72%),
+    radial-gradient(38% 42% at 92% 18%, var(--blob-4), transparent 72%),
+    radial-gradient(44% 40% at 80% 88%, var(--blob-2), transparent 72%),
+    radial-gradient(36% 38% at 8% 78%, var(--blob-3), transparent 72%),
+    var(--wall);
+}
+
+.page {
+  position: relative;
+  z-index: 1;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding-inline: 20px;
+  padding-block: 0 56px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.glass {
+  background: var(--glass);
+  -webkit-backdrop-filter: blur(26px) saturate(170%);
+  backdrop-filter: blur(26px) saturate(170%);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--r-lg);
+  box-shadow: var(--shadow);
+}
+
+/* Barra superior */
+.toolbar {
+  position: sticky;
+  top: env(safe-area-inset-top, 0px);
+  z-index: 10;
+  margin-top: 14px;
+  padding: 8px;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.toolbar .brand { font-weight: 600; font-size: 14px; padding-left: 8px; white-space: nowrap; }
+.segmented {
+  display: flex;
+  gap: 2px;
+  padding: 3px;
+  border-radius: 11px;
+  background: var(--hairline);
+  overflow-x: auto;
+  scrollbar-width: none;
+  margin-left: auto;
+  min-width: 0;
+}
+.segmented::-webkit-scrollbar { display: none; }
+.segmented a {
+  color: var(--fg-2);
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 500;
+  padding: 5px 12px;
+  border-radius: 8px;
+  white-space: nowrap;
+  transition: background 0.15s, color 0.15s;
+}
+.segmented a:hover { background: var(--glass-strong); color: var(--fg); }
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 15px;
+  padding: 11px 18px;
+  border-radius: 11px;
+  background: var(--accent);
+  color: var(--on-accent);
+  white-space: nowrap;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.25), 0 2px 10px color-mix(in srgb, var(--accent) 35%, transparent);
+  transition: transform 0.15s, filter 0.15s;
+}
+.btn:hover { filter: brightness(1.06); }
+.btn:active { transform: scale(0.98); }
+.btn.ghost { background: var(--glass-strong); color: var(--fg); border: 1px solid var(--hairline); box-shadow: none; }
+.toolbar .btn { padding: 6px 12px; font-size: 13px; border-radius: 9px; }
+a:focus-visible, summary:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+/* Hero */
+.hero { overflow: hidden; }
+.titlebar { display: flex; align-items: center; gap: 8px; padding: 12px 16px; border-bottom: 1px solid var(--hairline); }
+.dot { width: 12px; height: 12px; border-radius: 50%; }
+.dot.r { background: #ff5f57; }
+.dot.y { background: #febc2e; }
+.dot.g { background: #28c840; }
+.titlebar .file { margin-inline: auto; font-size: 12.5px; color: var(--fg-3); font-weight: 500; transform: translateX(-22px); }
+.hero-body { padding: 44px 44px 36px; display: grid; gap: 26px; }
+.eyebrow { font-size: 12px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent); }
+h1 {
+  font-family: var(--font-display);
+  font-size: clamp(42px, 7.4vw, 72px);
+  line-height: 1.02;
+  letter-spacing: -0.035em;
+  font-weight: 700;
+  margin: 8px 0 14px;
+  text-wrap: balance;
+}
+.promise {
+  font-family: var(--font-display);
+  font-size: clamp(22px, 3.2vw, 30px);
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  font-weight: 600;
+  margin: 0 0 10px;
+  text-wrap: balance;
+}
+.promise em { font-style: normal; color: var(--accent); }
+.lede { font-size: 17px; color: var(--fg-2); max-width: 36em; margin: 0; text-wrap: pretty; }
+
+.by {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 6px 16px 6px 6px;
+  border-radius: 999px;
+  background: var(--glass-strong);
+  border: 1px solid var(--hairline);
+  align-self: start;
+  justify-self: start;
+}
+.by img { width: 40px; height: 40px; border-radius: 50%; object-fit: cover; }
+.by b { display: block; font-size: 14px; line-height: 1.2; }
+.by span { font-size: 12.5px; color: var(--fg-2); }
+
+.offer {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 18px 28px;
+  padding: 22px 24px;
+  border-radius: 18px;
+  background: linear-gradient(135deg, color-mix(in srgb, var(--accent) 13%, var(--glass-strong)), var(--glass-strong) 65%);
+  border: 1px solid color-mix(in srgb, var(--accent) 38%, transparent);
+  box-shadow: 0 10px 30px color-mix(in srgb, var(--accent) 16%, transparent);
+}
+.seal {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  align-self: flex-start;
+  font-size: 12.5px;
+  font-weight: 700;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: var(--accent);
+  padding: 5px 12px 5px 8px;
+  border-radius: 999px;
+  background: var(--accent-soft);
+}
+.seal svg { width: 18px; height: 18px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.deal-copy { display: flex; flex-direction: column; gap: 14px; min-width: 0; }
+.price-compare { display: flex; flex-wrap: wrap; align-items: flex-end; gap: 12px 28px; }
+.pc { display: flex; flex-direction: column; gap: 4px; }
+.pc > span { font-size: 13px; color: var(--fg-2); font-weight: 500; }
+.pc.regular s {
+  font-family: var(--font-display);
+  font-size: 26px;
+  font-weight: 600;
+  line-height: 1;
+  color: var(--fg-3);
+  text-decoration-thickness: 2px;
+  text-decoration-color: var(--muted-x);
+  font-variant-numeric: tabular-nums;
+}
+.pc.deal b {
+  font-family: var(--font-display);
+  font-size: 42px;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+}
+.pc.deal b small { font-size: 15px; font-weight: 600; color: var(--fg-2); letter-spacing: 0; }
+.offer-side { display: flex; flex-direction: column; align-items: stretch; gap: 10px; text-align: center; }
+.offer-side .save { justify-content: center; font-size: 13px; padding: 5px 12px; }
+@media (max-width: 600px) {
+  .offer { grid-template-columns: 1fr; padding: 18px; }
+  .pc.deal b { font-size: 36px; }
+}
+.save {
+  display: inline-flex;
+  align-items: center;
+  font-size: 12px;
+  font-weight: 700;
+  padding: 3px 10px;
+  border-radius: 999px;
+  color: var(--c2);
+  background: color-mix(in srgb, var(--c2) 14%, transparent);
+  white-space: nowrap;
+}
+.offer .start { font-size: 13.5px; color: var(--fg-2); }
+
+.facts { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 10px; }
+.fact { background: var(--glass-strong); border: 1px solid var(--hairline); border-radius: var(--r-md); padding: 14px 16px; }
+.fact b { display: block; font-family: var(--font-display); font-size: 26px; letter-spacing: -0.02em; line-height: 1.1; font-variant-numeric: tabular-nums; }
+.fact span { font-size: 13px; color: var(--fg-2); }
+
+/* Secciones */
+section { display: flex; flex-direction: column; gap: 14px; }
+.sec-head { padding: 22px 4px 0; display: flex; flex-direction: column; gap: 6px; }
+.kicker { font-size: 12px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--fg-3); }
+h2 { font-family: var(--font-display); font-size: clamp(26px, 3.6vw, 34px); letter-spacing: -0.028em; line-height: 1.12; margin: 0; text-wrap: balance; }
+.sec-head p { margin: 0; color: var(--fg-2); max-width: 44em; font-size: 16px; }
+.card { padding: 24px 26px; min-width: 0; }
+h3 { font-family: var(--font-display); font-size: 19px; letter-spacing: -0.015em; line-height: 1.25; margin: 0; text-wrap: balance; }
+.grid-3 { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; }
+
+/* Resultados */
+.result { display: flex; flex-direction: column; gap: 12px; --tone: var(--c1); }
+.result p { margin: 0; color: var(--fg-2); font-size: 14.5px; }
+.glyph {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  display: grid;
+  place-items: center;
+  color: var(--on-color);
+  background: linear-gradient(160deg, color-mix(in srgb, var(--tone) 75%, #ffffff), var(--tone));
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.35), 0 4px 12px color-mix(in srgb, var(--tone) 30%, transparent);
+}
+.glyph svg { width: 22px; height: 22px; fill: none; stroke: currentColor; stroke-width: 1.9; stroke-linecap: round; stroke-linejoin: round; }
+
+/* Antes / después */
+.compare { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); padding: 0; overflow: hidden; }
+.compare > div { padding: 24px 26px; display: flex; flex-direction: column; gap: 14px; min-width: 0; }
+.compare .after { background: color-mix(in srgb, var(--c2) 8%, transparent); border-left: 1px solid var(--hairline); }
+.compare .tag { font-size: 12px; font-weight: 700; letter-spacing: 0.07em; text-transform: uppercase; }
+.compare .before .tag { color: var(--fg-3); }
+.compare .after .tag { color: var(--c2); }
+.compare ul { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 12px; }
+.compare li { display: grid; grid-template-columns: 20px 1fr; gap: 10px; font-size: 15px; align-items: start; }
+.compare li svg { width: 18px; height: 18px; margin-top: 2px; fill: none; stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; }
+.compare .before li { color: var(--fg-2); }
+.compare .before li svg { stroke: var(--muted-x); }
+.compare .after li { font-weight: 500; }
+.compare .after li svg { stroke: var(--c2); }
+
+/* Recorrido */
+.journey { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px; }
+.week { display: flex; flex-direction: column; gap: 12px; padding: 20px; --tone: var(--c1); }
+.week[data-n="2"] { --tone: var(--c2); }
+.week[data-n="3"] { --tone: var(--c3); }
+.week[data-n="4"] { --tone: var(--c4); }
+.week-top { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
+.week .n { font-size: 12.5px; font-weight: 700; color: var(--tone); letter-spacing: 0.03em; }
+.cal { width: 46px; border-radius: 10px; overflow: hidden; background: var(--glass-strong); border: 1px solid var(--hairline); text-align: center; flex: none; }
+.cal .m { background: var(--cal-red); color: #ffffff; font-size: 9.5px; font-weight: 700; letter-spacing: 0.08em; padding: 2px 0; }
+.cal .d { font-family: var(--font-display); font-size: 20px; font-weight: 600; line-height: 1.3; font-variant-numeric: tabular-nums; }
+.week p { margin: 0; color: var(--fg-2); font-size: 14px; }
+.takeaway {
+  margin-top: auto;
+  padding: 12px 14px;
+  border-radius: 12px;
+  background: color-mix(in srgb, var(--tone) 10%, transparent);
+  border: 1px solid color-mix(in srgb, var(--tone) 22%, transparent);
+  font-size: 13.5px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.takeaway b { color: var(--tone); font-size: 11.5px; letter-spacing: 0.06em; text-transform: uppercase; }
+
+/* Perfiles */
+.profile { display: flex; flex-direction: column; gap: 10px; }
+.profile .tag { align-self: flex-start; font-size: 12px; font-weight: 600; padding: 3px 10px; border-radius: 999px; color: var(--tone); background: color-mix(in srgb, var(--tone) 13%, transparent); }
+.profile p { margin: 0; color: var(--fg-2); font-size: 14.5px; }
+
+/* Instructor */
+.instructor { display: grid; grid-template-columns: minmax(0, 300px) minmax(0, 1fr); gap: 32px; align-items: center; padding: 26px; }
+.instructor img { width: 100%; max-width: 100%; aspect-ratio: 1 / 1; object-fit: cover; border-radius: 18px; display: block; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.18); }
+.instructor .who { display: flex; flex-direction: column; gap: 12px; min-width: 0; }
+.instructor h2 { font-size: clamp(28px, 3.8vw, 36px); }
+.instructor .role { font-size: 16px; font-weight: 600; color: var(--accent); margin: -4px 0 0; }
+.instructor p { margin: 0; color: var(--fg-2); font-size: 15.5px; max-width: 34em; }
+.points { list-style: none; margin: 4px 0 0; padding: 0; display: flex; flex-direction: column; gap: 8px; }
+.points li { display: grid; grid-template-columns: 22px 1fr; gap: 10px; font-size: 14.5px; }
+
+/* Incluye */
+.includes { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 28px; list-style: none; margin: 0; padding: 0; }
+.includes li { display: grid; grid-template-columns: 26px 1fr; gap: 12px; padding: 14px 0; border-bottom: 1px solid var(--hairline); }
+.check {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: color-mix(in srgb, var(--c2) 15%, transparent);
+  color: var(--c2);
+  margin-top: 1px;
+}
+.check svg { width: 13px; height: 13px; fill: none; stroke: currentColor; stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; }
+.includes b { display: block; font-size: 15px; font-weight: 600; }
+.includes span.d { font-size: 13.5px; color: var(--fg-2); }
+.pill { display: inline-flex; font-size: 11.5px; font-weight: 600; padding: 2px 9px; border-radius: 999px; color: var(--c3); background: color-mix(in srgb, var(--c3) 13%, transparent); white-space: nowrap; vertical-align: 1px; margin-left: 6px; }
+
+/* Preguntas */
+.faq { padding: 6px 26px; }
+.faq details { border-bottom: 1px solid var(--hairline); }
+.faq details:last-child { border-bottom: 0; }
+.faq summary { cursor: pointer; list-style: none; padding: 16px 0; font-weight: 600; font-size: 15.5px; display: flex; justify-content: space-between; gap: 16px; }
+.faq summary::-webkit-details-marker { display: none; }
+.faq summary::after { content: "+"; color: var(--fg-3); font-weight: 400; font-size: 20px; line-height: 1; transition: transform 0.2s; }
+.faq details[open] summary::after { transform: rotate(45deg); }
+.faq details p { margin: 0 0 16px; color: var(--fg-2); max-width: 46em; }
+
+/* Inscripción */
+.cta { padding: 36px; display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr); gap: 30px; align-items: start; }
+.cta h2 { font-size: clamp(28px, 4vw, 38px); }
+.cta .copy { display: flex; flex-direction: column; gap: 14px; }
+.cta .copy p { margin: 0; color: var(--fg-2); font-size: 16px; }
+.cta .copy ul { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 9px; }
+.cta .copy li { display: grid; grid-template-columns: 22px 1fr; gap: 10px; font-size: 15px; }
+.price-card {
+  background: linear-gradient(160deg, color-mix(in srgb, var(--accent) 12%, var(--glass-strong)), var(--glass-strong) 55%);
+  border: 1px solid color-mix(in srgb, var(--accent) 38%, transparent);
+  box-shadow: 0 10px 30px color-mix(in srgb, var(--accent) 16%, transparent);
+  border-radius: 18px;
+  padding: 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.deal-note { margin: 0; font-size: 14.5px; color: var(--fg-2); }
+.deal-note b { color: var(--fg); }
+.receipt { display: flex; flex-direction: column; gap: 10px; padding: 14px 0; border-top: 1px solid var(--hairline); border-bottom: 1px solid var(--hairline); }
+.line { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; font-size: 14.5px; font-variant-numeric: tabular-nums; }
+.line > span:first-child { color: var(--fg-2); }
+.line s { color: var(--fg-3); text-decoration-color: var(--muted-x); text-decoration-thickness: 2px; font-weight: 600; }
+.line.discount span:last-child { color: var(--c2); font-weight: 700; }
+.line.total { padding-top: 10px; border-top: 1px dashed var(--hairline); align-items: center; }
+.line.total > span:first-child { color: var(--fg); font-weight: 600; }
+.line.total b { font-family: var(--font-display); font-size: 38px; font-weight: 700; letter-spacing: -0.03em; line-height: 1; }
+.line.total b small { font-size: 14px; font-weight: 600; color: var(--fg-2); letter-spacing: 0; }
+.per { font-size: 13.5px; color: var(--fg-2); text-align: center; }
+.price-card .badge { align-self: flex-start; font-size: 12px; font-weight: 700; letter-spacing: 0.04em; padding: 4px 11px; border-radius: 999px; color: var(--accent); background: var(--accent-soft); }
+.price-card .was { font-size: 14px; color: var(--fg-3); }
+.price-card .now { font-family: var(--font-display); font-size: 46px; font-weight: 700; letter-spacing: -0.03em; line-height: 1; font-variant-numeric: tabular-nums; }
+.price-card .now small { font-size: 16px; font-weight: 600; color: var(--fg-2); letter-spacing: 0; }
+.price-card .math { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; font-size: 13.5px; color: var(--fg-2); }
+.price-card .btn { width: 100%; }
+.rows { display: flex; flex-direction: column; gap: 9px; padding-top: 14px; border-top: 1px solid var(--hairline); }
+.row { display: flex; justify-content: space-between; gap: 12px; font-size: 13.5px; align-items: baseline; }
+.row span:first-child { color: var(--fg-3); }
+.row span:last-child { font-weight: 600; text-align: right; }
+.row .tbd { color: var(--c3); }
+
+footer { text-align: center; color: var(--fg-3); font-size: 12.5px; padding-top: 8px; }
+
+@media (max-width: 860px) {
+  .grid-3, .includes { grid-template-columns: 1fr; }
+  .journey { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .facts { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .cta { grid-template-columns: 1fr; padding: 28px 24px; }
+  .instructor { grid-template-columns: minmax(0, 220px) minmax(0, 1fr); gap: 24px; }
+}
+@media (max-width: 600px) {
+  .page { padding-inline: 16px; }
+  .hero-body { padding: 28px 20px 22px; }
+  .card, .compare > div { padding: 20px 18px; }
+  .faq { padding: 4px 18px; }
+  .toolbar .brand { display: none; }
+  .segmented { margin-left: 0; }
+  .titlebar .file { transform: none; }
+  .journey, .compare, .instructor { grid-template-columns: 1fr; }
+  .instructor img { max-width: 260px; }
+  .compare .after { border-left: 0; border-top: 1px solid var(--hairline); }
+  .offer .btn { width: 100%; }
+}
+
+/* Enfoque */
+.manifesto { padding: 34px; display: flex; flex-direction: column; gap: 22px; }
+.manifesto .big {
+  font-family: var(--font-display);
+  font-size: clamp(28px, 4.4vw, 44px);
+  font-weight: 700;
+  letter-spacing: -0.032em;
+  line-height: 1.08;
+  margin: 0;
+  text-wrap: balance;
+}
+.manifesto .big em { font-style: normal; color: var(--accent); }
+.manifesto > p { margin: 0; color: var(--fg-2); font-size: 16.5px; max-width: 40em; }
+.pillars { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
+.pillar { background: var(--glass-strong); border: 1px solid var(--hairline); border-radius: var(--r-md); padding: 18px; display: flex; flex-direction: column; gap: 6px; }
+.pillar b { font-family: var(--font-display); font-size: 18px; letter-spacing: -0.015em; line-height: 1.2; }
+.pillar b span { color: var(--fg-3); font-weight: 500; }
+.pillar p { margin: 0; font-size: 14px; color: var(--fg-2); }
+@media (max-width: 860px) { .pillars { grid-template-columns: 1fr; } }
+@media (max-width: 600px) { .manifesto { padding: 24px 18px; } }
+</style>
+
+<div class="wall" aria-hidden="true"></div>
+
+<div class="page">
+
+  <nav class="toolbar glass" aria-label="Secciones">
+    <span class="brand">IA para Líderes</span>
+    <div class="segmented">
+      <a href="#resultados">Resultados</a>
+      <a href="#enfoque">Enfoque</a>
+      <a href="#proyectos">Proyectos</a>
+      <a href="#recorrido">Recorrido</a>
+      <a href="#instructor">Instructor</a>
+      <a href="#preguntas">Preguntas</a>
+    </div>
+    <a class="btn" href="#inscripcion">Reservar cupo</a>
+  </nav>
+
+  <header class="hero glass">
+    <div class="titlebar" aria-hidden="true">
+      <span class="dot r"></span><span class="dot y"></span><span class="dot g"></span>
+      <span class="file">Curso en vivo · 4 semanas</span>
+    </div>
+    <div class="hero-body">
+      <div>
+        <div class="eyebrow">Curso práctico en vivo · Inicia el 17 de noviembre</div>
+        <h1>IA para Líderes</h1>
+        <p class="promise">Decide mejor, gana horas cada semana y <em>logra más con tu equipo</em> usando inteligencia artificial.</p>
+        <p class="lede">En cuatro semanas de clases en vivo creas tu propia estrategia de IA y la aplicas en proyectos reales de datos, diseño y video, aunque hoy apenas estés empezando.</p>
+      </div>
+      <div class="by">
+        <img src="gio-moreno.jpg" alt="Gio Moreno">
+        <div><b>Con Gio Moreno</b><span>Especialista en Marketing e Inteligencia Artificial</span></div>
+      </div>
+      <div class="offer">
+        <div class="deal-copy">
+          <span class="seal"><svg viewBox="0 0 24 24"><circle cx="12" cy="9" r="6"/><path d="m8.6 13.8-1.6 7.2 5-2.8 5 2.8-1.6-7.2"/></svg>Convenio exclusivo Ulider</span>
+          <div class="price-compare">
+            <div class="pc regular"><span>Precio regular</span><s>$250.000</s></div>
+            <div class="pc deal"><span>Tu precio con el convenio</span><b>$70.000 <small>COP</small></b></div>
+          </div>
+        </div>
+        <div class="offer-side">
+          <span class="save">Ahorras $180.000 · 72 %</span>
+          <a class="btn" href="#inscripcion">Quiero mi cupo</a>
+        </div>
+      </div>
+      <div class="facts">
+        <div class="fact"><b>1</b><span>estrategia de IA hecha a tu medida</span></div>
+        <div class="fact"><b>3</b><span>proyectos reales de datos, diseño y video</span></div>
+        <div class="fact"><b>8 h</b><span>en vivo aplicadas a tu trabajo real</span></div>
+        <div class="fact"><b>0</b><span>conocimientos técnicos necesarios</span></div>
+      </div>
+    </div>
+  </header>
+
+  <section id="resultados" aria-labelledby="h-res">
+    <div class="sec-head">
+      <span class="kicker">Resultados</span>
+      <h2 id="h-res">Lo que vas a conseguir</h2>
+      <p>Al terminar tienes una forma de trabajar con IA que se nota en tus resultados y en los de tu equipo.</p>
+    </div>
+    <div class="grid-3">
+      <div class="card glass result" style="--tone: var(--c1)">
+        <div class="glyph"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div>
+        <h3>La IA se vuelve parte de tu día</h3>
+        <p>La usas de forma natural en tu rutina para trabajar más rápido y con mejor calidad.</p>
+      </div>
+      <div class="card glass result" style="--tone: var(--c6)">
+        <div class="glyph"><svg viewBox="0 0 24 24"><path d="M12 3 4 7v5c0 4.5 3.4 8.2 8 9 4.6-.8 8-4.5 8-9V7z"/><path d="m8.5 12 2.5 2.5 4.5-5"/></svg></div>
+        <h3>Adoptas cualquier herramienta nueva</h3>
+        <p>Cuando aparece una novedad, sabes evaluarla rápido y decidir cómo aprovecharla en tu trabajo.</p>
+      </div>
+      <div class="card glass result" style="--tone: var(--c2)">
+        <div class="glyph"><svg viewBox="0 0 24 24"><path d="M9 18h6"/><path d="M10 21h4"/><path d="M12 3a6 6 0 0 0-3.5 10.9c.6.4 1 1.1 1 1.8V16h5v-.3c0-.7.4-1.4 1-1.8A6 6 0 0 0 12 3z"/></svg></div>
+        <h3>Piensas en estrategia con un aliado</h3>
+        <p>Usas la IA para analizar, cuestionar tus ideas y ver escenarios antes de tomar decisiones importantes.</p>
+      </div>
+      <div class="card glass result" style="--tone: var(--c3)">
+        <div class="glyph"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="6" height="5" rx="1.5"/><rect x="15" y="4" width="6" height="5" rx="1.5"/><rect x="9" y="15" width="6" height="5" rx="1.5"/><path d="M6 9v2a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V9"/><path d="M12 13v2"/></svg></div>
+        <h3>Conviertes tareas en sistemas</h3>
+        <p>Identificas los procesos donde la IA libera más tiempo y valor, y los rediseñas para que fluyan con menos esfuerzo.</p>
+      </div>
+      <div class="card glass result" style="--tone: var(--c4)">
+        <div class="glyph"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.5"/></svg></div>
+        <h3>Te mantienes a la vanguardia</h3>
+        <p>Sabes qué avances de la IA importan para tu trabajo y cuáles puedes ignorar, con una rutina de minutos a la semana.</p>
+      </div>
+      <div class="card glass result" style="--tone: var(--c5)">
+        <div class="glyph"><svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3"/><path d="M3.5 19a5.5 5.5 0 0 1 11 0"/><path d="M16 5.5a3 3 0 0 1 0 5"/><path d="M18 14a5 5 0 0 1 2.5 5"/></svg></div>
+        <h3>Llevas a tu equipo contigo</h3>
+        <p>Guías la adopción de la IA en tu equipo con una estrategia clara y resultados medibles.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="enfoque" aria-labelledby="h-enf">
+    <div class="card glass manifesto">
+      <span class="kicker">El enfoque</span>
+      <h2 id="h-enf" class="big">Los mejores resultados con IA empiezan por <em>una buena estrategia</em>.</h2>
+      <p>Cada práctica parte de una pregunta sencilla: qué quieres mejorar en tu trabajo. Desde ahí decides cómo usar la IA, la pones a prueba y la vuelves parte de tu rutina.</p>
+      <div class="pillars">
+        <div class="pillar"><b>Empiezas por tus procesos</b><p>Identificas qué partes de tu trabajo tienen más potencial de mejora.</p></div>
+        <div class="pillar"><b>Decides con criterio</b><p>Tú pones la dirección y el juicio, y la IA amplía lo que puedes lograr.</p></div>
+        <div class="pillar"><b>Lo conviertes en hábito</b><p>Los resultados crecen cuando la usas todos los días.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section aria-labelledby="h-cmp">
+    <div class="sec-head">
+      <span class="kicker">La diferencia</span>
+      <h2 id="h-cmp">Usar la IA de vez en cuando no es lo mismo que liderar con ella</h2>
+    </div>
+    <div class="glass compare">
+      <div class="before">
+        <span class="tag">Uso ocasional</span>
+        <ul>
+          <li><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18"/></svg>Pruebas aplicaciones sueltas y las dejas a las pocas semanas.</li>
+          <li><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18"/></svg>Cada novedad te obliga a empezar de cero.</li>
+          <li><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18"/></svg>Usas la IA para tareas aisladas y sin impacto visible.</li>
+          <li><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18"/></svg>Cada persona del equipo la usa a su manera.</li>
+        </ul>
+      </div>
+      <div class="after">
+        <span class="tag">Liderar con IA</span>
+        <ul>
+          <li><svg viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg>Tienes un sistema que integra la IA en tu trabajo diario.</li>
+          <li><svg viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg>Adoptas cada novedad con el mismo método.</li>
+          <li><svg viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg>La usas para pensar, decidir y mejorar procesos completos.</li>
+          <li><svg viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg>Tu equipo avanza con una estrategia común.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="proyectos" aria-labelledby="h-pro">
+    <div class="sec-head">
+      <span class="kicker">Proyectos</span>
+      <h2 id="h-pro">Tres proyectos que terminas con tu propia información</h2>
+      <p>Llevas la estrategia a la práctica en proyectos reales de tu trabajo. Al final del curso tienes tres resultados que puedes usar y mostrar.</p>
+    </div>
+    <div class="grid-3">
+      <article class="card glass result" style="--tone: var(--c6)">
+        <div class="glyph"><svg viewBox="0 0 24 24"><ellipse cx="12" cy="6" rx="7" ry="3"/><path d="M5 6v6c0 1.7 3.1 3 7 3s7-1.3 7-3V6"/><path d="M5 12v6c0 1.7 3.1 3 7 3s7-1.3 7-3v-6"/></svg></div>
+        <h3>Gestión de datos</h3>
+        <p>Reúnes los documentos y datos de tu área en un solo lugar, los analizas con IA y sacas conclusiones claras para decidir.</p>
+        <div class="takeaway"><b>Resultado</b>Tu información organizada y un análisis listo para tu próxima decisión.</div>
+      </article>
+      <article class="card glass result" style="--tone: var(--c3)">
+        <div class="glyph"><svg viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="3"/><circle cx="9.5" cy="9.5" r="1.8"/><path d="m20 15-4.5-4.5L6 20"/></svg></div>
+        <h3>Diseño</h3>
+        <p>Creas pósters, publicaciones y presentaciones con calidad profesional para tu marca o tu equipo, sin depender de un diseñador.</p>
+        <div class="takeaway"><b>Resultado</b>Piezas visuales listas para publicar o presentar.</div>
+      </article>
+      <article class="card glass result" style="--tone: var(--c4)">
+        <div class="glyph"><svg viewBox="0 0 24 24"><rect x="3" y="6" width="13" height="12" rx="2.5"/><path d="m16 10.5 5-3v9l-5-3"/></svg></div>
+        <h3>Video</h3>
+        <p>Pasas de la idea al video terminado: escribes el guion, lo produces y lo editas con apoyo de la IA.</p>
+        <div class="takeaway"><b>Resultado</b>Tu propio video corto, listo para compartir.</div>
+      </article>
+    </div>
+  </section>
+
+  <section id="recorrido" aria-labelledby="h-rec">
+    <div class="sec-head">
+      <span class="kicker">Tu recorrido</span>
+      <h2 id="h-rec">Cada semana, un avance que se nota en tu trabajo</h2>
+      <p>Un encuentro en vivo por semana. Sales de cada uno con algo concreto para aplicar al día siguiente.</p>
+    </div>
+    <div class="journey">
+      <article class="card glass week" data-n="1">
+        <div class="week-top"><span class="n">SEMANA 1</span><div class="cal" aria-label="17 de noviembre"><div class="m">NOV</div><div class="d">17</div></div></div>
+        <h3>Ves todo lo que la IA puede hacer por ti</h3>
+        <p>Entiendes su alcance real y dónde genera más valor en tu trabajo.</p>
+        <div class="takeaway"><b>Te llevas</b>Tu mapa personal de oportunidades con IA.</div>
+      </article>
+      <article class="card glass week" data-n="2">
+        <div class="week-top"><span class="n">SEMANA 2</span><div class="cal" aria-label="24 de noviembre"><div class="m">NOV</div><div class="d">24</div></div></div>
+        <h3>Piensas y decides con la IA a tu lado</h3>
+        <p>La conviertes en tu consejero para analizar tus datos, planear y decidir.</p>
+        <div class="takeaway"><b>Te llevas</b>Tu proyecto de gestión de datos y tu método de pensamiento estratégico.</div>
+      </article>
+      <article class="card glass week" data-n="3">
+        <div class="week-top"><span class="n">SEMANA 3</span><div class="cal" aria-label="1 de diciembre"><div class="m">DIC</div><div class="d">1</div></div></div>
+        <h3>Conviertes tus tareas en sistemas</h3>
+        <p>Rediseñas un proceso de tu trabajo y creas piezas visuales para comunicarlo.</p>
+        <div class="takeaway"><b>Te llevas</b>Un proceso rediseñado con IA y tu proyecto de diseño.</div>
+      </article>
+      <article class="card glass week" data-n="4">
+        <div class="week-top"><span class="n">SEMANA 4</span><div class="cal" aria-label="8 de diciembre"><div class="m">DIC</div><div class="d">8</div></div></div>
+        <h3>Comunicas en video y lideras el cambio</h3>
+        <p>Produces tu propio video y defines cómo llevar la IA a tu equipo.</p>
+        <div class="takeaway"><b>Te llevas</b>Tu proyecto de video y tu plan de adopción de 30 días.</div>
+      </article>
+    </div>
+  </section>
+
+  <section aria-labelledby="h-para">
+    <div class="sec-head">
+      <span class="kicker">Para quién es</span>
+      <h2 id="h-para">Para quienes lideran, desde cualquier lugar</h2>
+      <p>Lideras un equipo, un proyecto o tu propio negocio. El método se adapta a tu realidad.</p>
+    </div>
+    <div class="grid-3">
+      <div class="card glass profile" style="--tone: var(--c1)">
+        <span class="tag">Profesionales y empleados</span>
+        <h3>Lideras procesos o proyectos</h3>
+        <p>Te conviertes en la persona que sabe sacar provecho de la IA en tu organización.</p>
+      </div>
+      <div class="card glass profile" style="--tone: var(--c2)">
+        <span class="tag">Emprendedores</span>
+        <h3>Lideras tu propio negocio</h3>
+        <p>Haces más con los recursos que tienes y compites con empresas más grandes.</p>
+      </div>
+      <div class="card glass profile" style="--tone: var(--c4)">
+        <span class="tag">Empresarios y directivos</span>
+        <h3>Lideras equipos y decisiones</h3>
+        <p>Defines cómo tu organización adopta la IA, con dirección y sin improvisar.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="instructor" aria-labelledby="h-ins">
+    <div class="card glass instructor">
+      <img src="gio-moreno.jpg" alt="Gio Moreno, instructor del curso">
+      <div class="who">
+        <span class="kicker">Tu instructor</span>
+        <h2 id="h-ins">Gio Moreno</h2>
+        <p class="role">Especialista en Marketing e Inteligencia Artificial</p>
+        <p>Gio te enseña a pensar y trabajar con inteligencia artificial de forma práctica, con una estrategia clara y resultados que aplicas desde la primera clase.</p>
+        <ul class="points">
+          <li><span class="check"><svg viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></span>Te acompaña en vivo mientras aplicas el método.</li>
+          <li><span class="check"><svg viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></span>Trabaja contigo sobre los retos reales de tu trabajo.</li>
+          <li><span class="check"><svg viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></span>Te explica los avances de la IA en un lenguaje claro y sin tecnicismos.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="incluye" aria-labelledby="h-inc">
+    <div class="sec-head">
+      <span class="kicker">Todo lo que incluye</span>
+      <h2 id="h-inc">Lo que recibes al inscribirte</h2>
+    </div>
+    <div class="card glass">
+      <ul class="includes">
+        <li><span class="check"><svg viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></span><div><b>4 encuentros en vivo de 2 horas</b><span class="d">Aprendes en directo y resuelves tus dudas en el momento.</span></div></li>
+        <li><span class="check"><svg viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></span><div><b>3 proyectos guiados: datos, diseño y video</b><span class="d">Los haces con tu propia información y con acompañamiento en vivo.</span></div></li>
+        <li><span class="check"><svg viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></span><div><b>Mapa de oportunidades con IA</b><span class="d">Para ver dónde la IA genera más valor en tu área o tu negocio.</span></div></li>
+        <li><span class="check"><svg viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></span><div><b>Método de adopción de herramientas</b><span class="d">Evalúas cualquier herramienta nueva y decides en minutos si te sirve.</span></div></li>
+        <li><span class="check"><svg viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></span><div><b>Biblioteca de instrucciones estratégicas</b><span class="d">Para analizar, planear y decidir con cualquier asistente de IA.</span></div></li>
+        <li><span class="check"><svg viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></span><div><b>Radar de vanguardia</b><span class="d">Fuentes seleccionadas y una rutina breve para estar al día sin saturarte.</span></div></li>
+        <li><span class="check"><svg viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></span><div><b>Plan de adopción de 30 días</b><span class="d">Para ti y para tu equipo, con pasos y metas claras.</span></div></li>
+        <li><span class="check"><svg viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></span><div><b>Retos semanales con retroalimentación</b><span class="d">Conviertes lo aprendido en hábito entre una clase y otra.</span></div></li>
+        <li><span class="check"><svg viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></span><div><b>Grabaciones de las clases <span class="pill">Por confirmar</span></b><span class="d">Para repasar cuando lo necesites.</span></div></li>
+        <li><span class="check"><svg viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></span><div><b>Certificado de participación <span class="pill">Por confirmar</span></b><span class="d">Para acreditar tu formación.</span></div></li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="preguntas" aria-labelledby="h-faq">
+    <div class="sec-head">
+      <span class="kicker">Preguntas frecuentes</span>
+      <h2 id="h-faq">Antes de reservar tu cupo</h2>
+    </div>
+    <div class="card glass faq">
+      <details>
+        <summary>¿Qué herramientas vamos a usar?</summary>
+        <p>Trabajamos con las herramientas de IA más útiles del momento y las aplicas directamente a tu trabajo. También aprendes a evaluar las que vayan apareciendo para elegir las que te convienen.</p>
+      </details>
+      <details>
+        <summary>Ya uso ChatGPT. ¿Este curso es para mí?</summary>
+        <p>Sí. Pasas de usar la IA para tareas sueltas a integrarla en tu forma de pensar, en tus procesos y en tu equipo. Ahí está el salto en resultados.</p>
+      </details>
+      <details>
+        <summary>¿Necesito saber de tecnología?</summary>
+        <p>No. El curso habla el lenguaje del liderazgo, no el de los programadores. Si usas el correo y el navegador, tienes lo necesario.</p>
+      </details>
+      <details>
+        <summary>¿Qué me llevo al terminar?</summary>
+        <p>Tres proyectos terminados con tu información (gestión de datos, diseño y video), tu mapa de oportunidades, tu método para pensar y decidir con IA, un proceso rediseñado y un plan de adopción de 30 días para ti y tu equipo.</p>
+      </details>
+      <details>
+        <summary>¿Cuánto tiempo necesito fuera de clase?</summary>
+        <p>Los retos se hacen sobre tareas que ya tienes en tu agenda, así que no te suman trabajo: te lo ahorran.</p>
+      </details>
+    </div>
+  </section>
+
+  <section id="inscripcion" aria-labelledby="h-cta">
+    <div class="card glass cta">
+      <div class="copy">
+        <span class="kicker">Inscripciones abiertas</span>
+        <h2 id="h-cta">Cierra el año liderando con inteligencia artificial</h2>
+        <p>Empiezas el martes 17 de noviembre. En 4 semanas tienes:</p>
+        <ul>
+          <li><span class="check"><svg viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></span>La IA integrada a tu trabajo diario.</li>
+          <li><span class="check"><svg viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></span>Tres proyectos terminados de datos, diseño y video.</li>
+          <li><span class="check"><svg viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></span>Criterio para elegir y aprovechar nuevas herramientas.</li>
+          <li><span class="check"><svg viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></span>Procesos que funcionan con menos esfuerzo.</li>
+          <li><span class="check"><svg viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></span>Un plan claro para llevar a tu equipo contigo.</li>
+        </ul>
+      </div>
+      <div class="price-card">
+        <span class="seal"><svg viewBox="0 0 24 24"><circle cx="12" cy="9" r="6"/><path d="m8.6 13.8-1.6 7.2 5-2.8 5 2.8-1.6-7.2"/></svg>Convenio exclusivo Ulider</span>
+        <p class="deal-note">Gracias al convenio con Ulider, accedes al curso completo con <b>72 % de descuento</b> sobre el precio regular.</p>
+        <div class="receipt">
+          <div class="line"><span>Precio regular</span><s>$250.000</s></div>
+          <div class="line discount"><span>Descuento convenio Ulider</span><span>−$180.000</span></div>
+          <div class="line total"><span>Tu inversión</span><b>$70.000 <small>COP</small></b></div>
+        </div>
+        <span class="per">Equivale a $17.500 por clase</span>
+        <a class="btn" href="#inscripcion">Quiero mi cupo</a>
+        <div class="rows">
+          <div class="row"><span>Inicio</span><span>Martes 17 de noviembre</span></div>
+          <div class="row"><span>Encuentros</span><span>4 martes · 7:00–9:00 p. m.</span></div>
+          <div class="row"><span>Modalidad</span><span>En vivo, virtual</span></div>
+          <div class="row"><span>Inscripción</span><span class="tbd">Enlace por definir</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>IA para Líderes · Con Gio Moreno · Borrador del 26 de octubre de 2026</footer>
+
+</div>
+
+</body></html>
